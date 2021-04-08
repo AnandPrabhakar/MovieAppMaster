@@ -15,6 +15,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.movies.movieappmaster.views.MovieAdapter
 import com.movies.movieappmaster.views.MoviesLoadStateAdapter
@@ -74,7 +75,8 @@ class SearchMoviesActivity : AppCompatActivity()
        movie_reccyleview.addItemDecoration(decoration)
         initAdapter()
 
-        val manager = GridLayoutManager(this, 2, GridLayoutManager.VERTICAL, false)
+        //val manager = GridLayoutManager(this, 2, GridLayoutManager.VERTICAL, false)
+        val manager = LinearLayoutManager(this, GridLayoutManager.VERTICAL, false)
 
         movie_reccyleview.setLayoutManager( manager);
         movie_reccyleview.adapter=adapter;

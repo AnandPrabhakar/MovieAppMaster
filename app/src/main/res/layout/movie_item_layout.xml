@@ -1,52 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+
+<androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    card_view:cardCornerRadius="4dp">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_width="match_parent">
+    <!-- A CardView that contains a TextView -->
+    <ImageView
+        android:id="@+id/poster"
+        android:layout_width="match_parent"
+        android:layout_height="194dp"
+        android:contentDescription="@null"
+        android:scaleType="centerCrop"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
 
-    <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-        android:layout_width="175dp"
-        android:layout_height="175dp"
-        android:layout_margin="8dp"
-        android:foreground="?android:attr/selectableItemBackground"
-        card_view:cardCornerRadius="8dp"
-        card_view:cardElevation="4dp"
-        card_view:cardUseCompatPadding="true">
-
-        <ImageView
-            android:id="@+id/poster"
+        <!-- Title, secondary and supporting text -->
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:contentDescription="@null"
-            android:scaleType="centerCrop"
-             />
-
-    </androidx.cardview.widget.CardView>
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:orientation="horizontal"
-    android:layout_height="wrap_content">
+            android:text="Anand"
+            android:id="@+id/name"
+            android:textAppearance="?attr/textAppearanceHeadline6"
+            />
     <TextView
-        android:id="@+id/name"
-        android:layout_width="wrap_content"
-        android:layout_height="25dp"
-        android:layout_marginLeft="24dp"
-        android:fontFamily="sans-serif-light"
-        android:textColor="@color/black"
-        android:text="dffddf"
-        android:textSize="16sp"
-        android:textStyle="bold" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="25dp"
+        android:text="ddddd"
+        android:gravity="left"
         android:id="@+id/year"
-        android:layout_marginLeft="24dp"
-        android:fontFamily="sans-serif-light"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:textStyle="bold" />
-</LinearLayout>
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
 
 
 
-</LinearLayout>
+
+
+
+<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    android:layout_width="wrap_content"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:orientation="vertical">-->
+
+<!--    <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"-->
+<!--        android:layout_width="175dp"-->
+<!--        android:layout_height="175dp"-->
+<!--        android:layout_margin="8dp"-->
+<!--        android:foreground="?android:attr/selectableItemBackground"-->
+<!--        card_view:cardCornerRadius="8dp"-->
+<!--        card_view:cardElevation="4dp"-->
+<!--        card_view:cardUseCompatPadding="true">-->
+
+
+
+<!--    </androidx.cardview.widget.CardView>-->
+<!--<LinearLayout-->
+<!--    android:layout_width="wrap_content"-->
+<!--    android:orientation="horizontal"-->
+<!--    android:layout_height="wrap_content">-->
+<!--    <TextView-->
+<!--        android:id="@+id/name"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="25dp"-->
+<!--        android:layout_marginLeft="24dp"-->
+<!--        android:fontFamily="sans-serif-light"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:text="dffddf"-->
+<!--        android:textSize="16sp"-->
+<!--        android:textStyle="bold" />-->
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="25dp"-->
+<!--        android:id="@+id/year"-->
+<!--        android:layout_marginLeft="24dp"-->
+<!--        android:fontFamily="sans-serif-light"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textSize="16sp"-->
+<!--        android:textStyle="bold" />-->
+<!--</LinearLayout>-->
+
+
+
+<!--</LinearLayout>-->
