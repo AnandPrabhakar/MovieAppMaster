@@ -2,6 +2,9 @@ package com.movies.movieappmaster
 
 import android.app.Activity
 import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.KeyEvent
@@ -10,6 +13,7 @@ import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.core.view.isVisible
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
@@ -17,6 +21,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.movies.movieappmaster.utils.NetworkConnection
 import com.movies.movieappmaster.views.MovieAdapter
 import com.movies.movieappmaster.views.MoviesLoadStateAdapter
 import com.movies.movieappmaster.viewmodel.SearchMoviesViewModel
@@ -63,9 +68,23 @@ class SearchMoviesActivity : AppCompatActivity()
        // val view = binding.root
       //  setContentView(view)
      setContentView(R.layout.activity_main)
+        var networkConnect= NetworkConnection(applicationContext)
+        networkConnect.observe(this, Observer { isConnected ->
+            if(isConnected)
+            {
+                Toast.makeText(applicationContext,"Internet Connection on",Toast.LENGTH_SHORT).show();
+
+            }else
+            {
+                Toast.makeText(applicationContext,"Internet Connection lost",Toast.LENGTH_SHORT).show();
+
+            }
+        })
+
         // get the view model
         viewModel = ViewModelProvider(this, Injection.provideViewModelFactory(this))
             .get(SearchMoviesViewModel::class.java)
+
         movie_reccyleview=findViewById(R.id.list);
         progressBar=findViewById(R.id.progress_bar);
         retryButton=findViewById(R.id.retry_button);
@@ -76,7 +95,7 @@ class SearchMoviesActivity : AppCompatActivity()
         initAdapter()
 
         //val manager = GridLayoutManager(this, 2, GridLayoutManager.VERTICAL, false)
-        val manager = LinearLayoutManager(this, GridLayoutManager.VERTICAL, false)
+        val manager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
         movie_reccyleview.setLayoutManager( manager);
         movie_reccyleview.adapter=adapter;
@@ -166,6 +185,10 @@ class SearchMoviesActivity : AppCompatActivity()
             movie_reccyleview.visibility = View.VISIBLE
         }
     }
+
+
+
+
     companion object
     {
         private const val LAST_SEARCH_QUERY: String = "last_search_query"
